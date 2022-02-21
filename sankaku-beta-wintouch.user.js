@@ -38,8 +38,8 @@
             Nav.closeBtn = null;
         }
 
-        const swiperWraperClassName = 'swiper-container swiper-container-virtual swiper-container-initialized swiper-container-horizontal';
-        const swiperWrapper = document.getElementsByClassName(swiperWraperClassName)[0];
+        const swiperWrapperClassName = 'swiper-container swiper-container-virtual swiper-container-initialized swiper-container-horizontal';
+        const swiperWrapper = document.getElementsByClassName(swiperWrapperClassName)[0];
         if (!swiperWrapper) {
             console.log("Swiper was not found!");
 
@@ -62,9 +62,9 @@
         }
 
         Nav.prevBtn = btns[1];
-        Nav.nextBtn = btns[0]
+        Nav.nextBtn = btns[0];
 
-        console.log("Make the navigation buttons invisible.")
+        console.log("Make the navigation buttons invisible.");
         Nav.prevBtn.style.visibility = "hidden";
         Nav.nextBtn.style.visibility = "hidden";
     };
@@ -87,11 +87,11 @@
 
         if (deltaX < 0) {
             console.log("Go to next.");
-            const keyboardEvent = new KeyboardEvent('keydown', { keyCode: 39, key: "ArrowRight" })
+            const keyboardEvent = new KeyboardEvent('keydown', { keyCode: 39, key: "ArrowRight" });
             document.dispatchEvent(keyboardEvent);
         } else {
             console.log("Go to prev.");
-            const keyboardEvent = new KeyboardEvent('keydown', { keyCode: 37, key: "ArrowLeft" })
+            const keyboardEvent = new KeyboardEvent('keydown', { keyCode: 37, key: "ArrowLeft" });
             document.dispatchEvent(keyboardEvent);
         }
 
@@ -99,7 +99,7 @@
     };
 
     const swiperWorkaround = () => {
-        var sheet = document.createElement('style')
+        var sheet = document.createElement('style');
         sheet.innerHTML = ".swiper-container {touch-action: none;}";
         document.body.appendChild(sheet);
     };
@@ -107,7 +107,7 @@
     const addTouchEvents = () => {
         document.body.addEventListener("touchstart", handleStart, false);
         document.body.addEventListener("touchmove", handleMove, false);
-        console.log("Added touch events.")
+        console.log("Added touch events.");
     };
 
     swiperWorkaround();
